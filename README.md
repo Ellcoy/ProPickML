@@ -10,6 +10,6 @@ We also recommend placing all code and mzXML files in one directory for ease of 
 3. Use Make_graphs.R on the output to create chromatograms for each peptide and sample (optional)
 4. Run MEW_csv_to_ml.R on the output summary csv files
 5. Run NEW_ML_final_prep.R on output of step 4 to have final input tables for Machine learning
-6. Run XGBoostModels.R to try out the Urine specific and generalizable model
+6. Use xgb_urine.model or xgb_general.model to try out the Urine specific and generalizable model on your data
 
 Please read comments carefully in each code file for precise instructions
