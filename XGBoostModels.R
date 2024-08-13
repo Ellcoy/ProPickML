@@ -42,7 +42,6 @@ train_dataset = xgb.DMatrix(data = as.matrix(BigComboReady[, -c(1,63)]), label =
 test_dataset  = xgb.DMatrix(data = as.matrix(UrineDataReady [, colnames(train_dataset)]), label = as.numeric(as.logical(UrineDataReady$class)))
 test_dataset2  = xgb.DMatrix(data = as.matrix(LongitudinalDataReady [, colnames(train_dataset)]), label = as.numeric(as.logical(LongitudinalDataReady$class)))
 test_dataset3  = xgb.DMatrix(data = as.matrix(FullPatientDataReady [, colnames(train_dataset)]), label = as.numeric(as.logical(FullPatientDataReady$class)))
-test_dataset4  = xgb.DMatrix(data = as.matrix(LongitudinalDataReady_col3 [, colnames(train_dataset)]), label = as.numeric(as.logical(LongitudinalDataReady_col3$class)))
 
 
 params <- list(booster = "gbtree", objective = "binary:logistic", eta=0.2, gamma=0, max_depth=8, min_child_weight=3, subsample=1, colsample_bytree=1)
@@ -53,5 +52,4 @@ mltools::mcc(preds = as.numeric(predict(XGB, train_dataset) >= 0.5), actuals = a
 mltools::mcc(preds = as.numeric(predict(XGB, test_dataset) >= 0.5), actuals = as.numeric(as.logical(UrineDataReady$class)))# MCC = 0.89
 mltools::mcc(preds = as.numeric(predict(XGB, test_dataset2) >= 0.5), actuals = as.numeric(as.logical(LongitudinalDataReady$class)))# MCC = 0.88
 mltools::mcc(preds = as.numeric(predict(XGB, test_dataset3) >= 0.5), actuals = as.numeric(as.logical(FullPatientDataReady$class)))# MCC =  0.83
-mltools::mcc(preds = as.numeric(predict(XGB, test_dataset4) >= 0.5), actuals = as.numeric(as.logical(LongitudinalDataReady_col3$class)))# MCC = 0.79
 
