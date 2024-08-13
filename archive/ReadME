@@ -1,1 +1,13 @@
-Readme
+ProPickML is a machine-learning based tool for chromatogram analysis in label-Free targeted Proteomics
+
+This is the older first version
+
+DRF_1_AutoML_3_20240216_151135 is the file containing the pretrained machine learning model. In order to get predictions on your dataset we recommend running the full process from mzXML to Ml input file. We also recommend placing all code and mzXML files in one directory for ease of execution.
+
+    Convert Raw files into mzXML using proteoWizard
+    Run mzXML_to_csv.R on mzXML files
+    Use Make_graphs.R on the output to create chromatograms for each peptide and sample (optional)
+    Run csv_to_ML.R on the output summary csv files
+    Run ML_file_to_predictions.R on output of step 4 to get predictions on your dataset
+
+Please read comments carefully in each code file for precise instructions
