@@ -29,7 +29,7 @@ AllColumns<-function(seq,filepath){
   testSEQdf<-newdf[newdf$sequence==seq,c("sequence","rtimes",transition_columns,"totIntensity")]
   # testSEQdf<-newdf[newdf$sequence==seq,c("sequence","rtimes","t1","t2","t3","t4","t5","t6","t7","t8","t9","t10","t11","t12","t13","t14","t15","t16","t17","t18","t19","totIntensity")]
   centsmoothPeaksSEQtotIntensity<-splus2R::peaks(data.frame(testSEQdf$rtimes,testSEQdf$totIntensity),span = 7, endbehavior = 0)
-  # Bob is dead to me
+  # Bob is a holder variable
   bob<-centsmoothPeaksSEQtotIntensity$testSEQdf.totIntensity
   testSEQdf$peaks<- bob
   peakList<-testSEQdf[testSEQdf$peaks=="TRUE",c("rtimes","totIntensity",transition_columns)]
