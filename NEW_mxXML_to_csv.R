@@ -94,7 +94,6 @@ main <- function(filepath, seqdata) {
 }
 
 
-
 ##On windows
 library(foreach)
 library(doParallel)
@@ -103,7 +102,7 @@ library(doParallel)
 cores=detectCores()
 cl <- makeCluster(cores[1]-2) #not to overload your computer
 registerDoParallel(cl)
-seqdata <- read.csv("C:/Users/Ellie/Documents/THESIS/LungCancerData/seqdata.csv", header = FALSE, sep = ",")
+seqdata <- read.csv("path/to/data/seqdata.csv", header = FALSE, sep = ",")
 foreach(i=allpaths, .combine=cbind) %dopar% {
   
   main(i,seqdata)
@@ -113,13 +112,15 @@ foreach(i=allpaths, .combine=cbind) %dopar% {
 stopCluster(cl)
 
 
-##On Linux Server
+## On Linux Server
 
 library(parallel)
 
-# Use mclapply for parallel processing
+# Read the seqdata file
+seqdata <- read.csv("path/to/data/seqdata.csv", header = FALSE, sep = ",")
 
-result <- mclapply(allpaths, main, mc.cores = parallel::detectCores() - 2)
+# Use mclapply for parallel processing and pass seqdata to the main function
+result <- mclapply(allpaths, function(i) main(i, seqdata), mc.cores = parallel::detectCores() - 2)
 
 # You can access the results in the 'result' variable
 
