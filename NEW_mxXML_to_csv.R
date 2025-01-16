@@ -78,7 +78,7 @@ main <- function(filepath, seqdata) {
   # Write matched data to CSV
   write.csv(rawdatadf, paste(gsub("\\..*","",filepath),"seqs",".csv",sep = ""), row.names = TRUE)
   rawdatadf_cleaned = rawdatadf %>% 
-    filter(sequence != "placeholder" | ion != "placeholder" | weight != "placeholder") %>% 
+    filter(sequence != "placeholder" | ion != "placeholder" ) %>% 
     mutate(sequence_count = cumsum(c(TRUE, head(sequence, -1) != tail(sequence, -1)))) %>% # find groups of sequence
     group_by(sequence_count) %>% #
     mutate(transition = row_number(mzs)) %>% # give transitions a number ordered by mzs
