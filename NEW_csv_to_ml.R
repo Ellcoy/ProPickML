@@ -182,6 +182,8 @@ timedata$Max.End.Time = as.numeric(timedata$Max.End.Time)
 
 #Function to check if Rtime is in intreval of start and end time
 in.interval = function(value, interval) {
+  if(length(interval) == 0){return(NA)}
+  if(length(value) == 0){return(NA)}
   if(value >= interval[1] & value <= interval[2]) {
     return(T)
   }
