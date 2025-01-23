@@ -14,3 +14,12 @@ We also recommend placing all code and mzXML files in one directory for ease of 
 7. Use xgb_urine.model or xgb_general.model to try out the pre-trained Urine specific and generalizable model on your data
 
 Please read comments carefully in each code file for precise instructions
+
+Should you use the tool in your research please cite: 
+
+ProPickML: Advancing Clinical Diagnostics with Automated Peak Picking in Label-Free Targeted Proteomics
+Elloise Coyle, Mickaël Leclercq, Clarisse Gotti, Florence Roux-Dalvai, and Arnaud Droit
+Journal of Proteome Research 2025 24 (1), 244-255
+DOI: 10.1021/acs.jproteome.4c00689 
+
+https://doi.org/10.1021/acs.jproteome.4c00689
